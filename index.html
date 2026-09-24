@@ -3,1289 +3,793 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day/Night — Survive & Thrive Kit</title>
+<title>Night Day — Survive & Thrive Kit for Incoming Freshmen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,460;0,9..144,560;1,9..144,460&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --night:#1D5792;
-    --night-2:#1c2030;
-    --night-3:#252b40;
-    --day:#f4ead2;
-    --day-2:#ece0c2;
-    --cream:#faf6ea;
-    --dawn:#F28428;
-    --dawn-2:#c97a2e;
-    --rose:#c05a71;
-    --rose-soft:#f0d9de;
-    --teal:#2e6a63;
-    --teal-soft:#d9e6e2;
-    --denim:#4c6284;
-    --denim-2:#374a68;
-    --ink:#12141c;
-    --line: rgba(18,20,28,0.12);
-    --line-light: rgba(250,246,234,0.18);
+    --navy-deep:#1D5792;
+    --navy-mid:#1E3A66;
+    --navy-line:#3A5686;
+    --rose-deep:#4B1F3E;
+    --rose-line:#7A3F68;
+    --orange:#F28428;
+    --orange-deep:#D66F14;
+    --orange-soft:#FBDDBE;
+    --paper:#F2EEE4;
+    --paper-dim:#E7E1D2;
+    --ink:#14120E;
+    --cream-text:#F5F1E6;
+    --radius-notch: 18px;
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Work Sans', sans-serif;
+    background:var(--paper);
     color:var(--ink);
-    background:var(--cream);
-    -webkit-font-smoothing:antialiased;
+    font-family:'Manrope', sans-serif;
+    font-weight:500;
     line-height:1.5;
+    overflow-x:hidden;
   }
-  h1,h2,h3,.serif{
-    font-family:'Fraunces', serif;
-    font-weight:460;
-    letter-spacing:-0.01em;
+  h1,h2,h3,.display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.92;
   }
-  img,svg{display:block; max-width:100%;}
   a{color:inherit; text-decoration:none;}
-  button{font:inherit; cursor:pointer; border:none; background:none; color:inherit;}
-  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
-  section{position:relative;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  button{font-family:inherit; cursor:pointer; border:none;}
 
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
-  }
-
-  /* ---------- Header ---------- */
-  header{
+  /* ---------- NAV ---------- */
+  .nav{
     position:sticky; top:0; z-index:100;
-    background:rgba(250,246,234,0.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
+    background:var(--navy-deep);
+    border-bottom:1px solid rgba(255,255,255,0.08);
   }
   .nav-inner{
-    max-width:1180px; margin:0 auto; padding:18px 32px;
-    display:flex; align-items:center; justify-content:space-between;
+    max-width:1180px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
   }
-  .logo{
-    font-family:'Fraunces', serif;
-    font-size:22px;
-    font-weight:560;
-    display:flex; align-items:center; gap:9px;
-    letter-spacing:-0.01em;
+  .logo-lockup{display:flex; align-items:center; gap:12px;}
+  .logo-lockup img{ height:130px; width:auto; }
+  .logo-lockup .wordmark{
+    font-family:'Anton', sans-serif;
+    color:var(--cream-text);
+    font-size:20px;
+    letter-spacing:0.02em;
   }
-  .logo img{ height:130px; width:auto; }
-  .footer-brand .logo img{ height:130px; }
-  nav{ margin-left:auto; margin-right:28px; }
-  nav ul{
-    list-style:none; display:flex; gap:34px;
-    font-size:14.5px; font-weight:500;
+  .logo-lockup .wordmark span{color:var(--orange);}
+  .nav-right{display:flex; align-items:center; gap:32px;}
+  .nav-links{display:flex; align-items:center; gap:28px;}
+  .nav-links a{
+    color:var(--cream-text); opacity:0.82; font-size:14px; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.04em;
   }
-  nav a{
-    position:relative; padding:4px 0;
-  }
-  nav a::after{
-    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
-    background:var(--dawn-2); transition:width 0.25s ease;
-  }
-  nav a:hover::after{ width:100%; }
-  .nav-cta{
-    display:flex; align-items:center; gap:20px;
-  }
+  .nav-links a:hover{opacity:1; color:var(--orange);}
   .btn{
-    display:inline-flex; align-items:center; justify-content:center;
-    padding:11px 24px; border-radius:100px;
-    font-size:14.5px; font-weight:600;
-    transition:transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    display:inline-block; padding:11px 22px; font-weight:800; font-size:13px;
+    text-transform:uppercase; letter-spacing:0.05em; border-radius:3px;
+    transition:transform .15s ease, background .15s ease;
   }
-  .btn-dark{ background:var(--night); color:var(--cream); }
-  .btn-dark:hover{ background:var(--night-2); transform:translateY(-1px); }
-  .btn-outline-night{ border:1.5px solid var(--night); color:var(--night); }
-  .btn-outline-night:hover{ background:var(--night); color:var(--cream); }
-  .btn-outline-cream{ border:1.5px solid rgba(250,246,234,0.5); color:var(--cream); }
-  .btn-outline-cream:hover{ background:var(--cream); color:var(--night); }
-  .btn-dawn{ background:var(--dawn); color:var(--cream); }
-  .btn-dawn:hover{ background:var(--dawn-2); transform:translateY(-1px); }
-  .menu-toggle{ display:none; }
+  .btn-orange{background:var(--orange); color:var(--cream-text);}
+  .btn-orange:hover{background:var(--orange-deep); color:var(--cream-text); transform:translateY(-1px);}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,0.35); color:var(--cream-text);}
+  .btn-ghost:hover{border-color:var(--orange); color:var(--orange);}
+  .nav-cta{display:none;}
+  @media(min-width:640px){.nav-cta{display:inline-block;}}
+  .burger{display:none; background:none; color:var(--cream-text); font-size:26px;}
 
-  /* ---------- Value strip ---------- */
-  .value-strip{
-    background:linear-gradient(90deg, #f6d9ac 0%, #f0c584 100%);
-    padding:34px 0;
-  }
-  .value-strip .wrap{ text-align:center; }
-  .vs-statement{
-    font-family:'Fraunces', serif; font-weight:500;
-    font-size:clamp(22px, 3.2vw, 32px); line-height:1.25; color:var(--night);
-    max-width:920px; margin:0 auto 22px;
-  }
-  .vs-statement strong{
-    font-weight:700; color:var(--cream); background:var(--night);
-    padding:2px 10px; border-radius:7px; white-space:nowrap;
-  }
-  .vs-pills{
-    display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;
-  }
-  .vs-pill{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; font-weight:600; color:var(--night);
-    background:var(--cream); border:1px solid rgba(18,20,28,0.1);
-    box-shadow:0 4px 12px rgba(18,20,28,0.12);
-    border-radius:100px; padding:7px 16px;
-  }
-  .vs-pill svg{ width:15px; height:15px; flex-shrink:0; }
-  .vs-pill.vs-night svg{ color:var(--night); }
-  .vs-pill.vs-day svg{ color:var(--dawn-2); }
-  .vs-pill.vs-drop svg{ color:var(--teal); }
-  @media (max-width: 640px){
-    .vs-statement{ font-size:19px; }
-    .vs-pills{ gap:10px; }
-  }
-
-  /* ---------- Hero ---------- */
+  /* ---------- HERO ---------- */
   .hero{
-    display:flex; min-height:88vh;
     position:relative;
-  }
-  .hero-half{
-    flex:1; position:relative; display:flex; align-items:center;
-    padding:80px 56px;
-    overflow:hidden;
-  }
-  .hero-night{ color:var(--cream); background:var(--night); }
-  .hero-day{ background:var(--day); color:var(--night); }
-  .hero-scene{
-    position:absolute; inset:0; z-index:0;
-  }
-  .hero-scene svg{ width:100%; height:100%; display:block; }
-  .hero-scene-fade{
-    position:absolute; inset:0; z-index:1;
-    background:linear-gradient(90deg, rgba(29,87,146,0.55) 0%, rgba(29,87,146,0.4) 32%, rgba(29,87,146,0.22) 64%, rgba(29,87,146,0.05) 84%);
-    pointer-events:none;
-  }
-  .hero-scene-fade.day-fade{
-    background:linear-gradient(90deg, var(--day) 0%, rgba(244,234,210,0.9) 32%, rgba(244,234,210,0.4) 64%, rgba(244,234,210,0.08) 84%);
-  }
-  .hero-night::before{
-    content:'';
-    position:absolute; inset:0; z-index:1;
     background:
-      radial-gradient(1.5px 1.5px at 20% 15%, rgba(250,246,234,0.5), transparent),
-      radial-gradient(1.5px 1.5px at 65% 10%, rgba(250,246,234,0.4), transparent),
-      radial-gradient(1px 1px at 40% 20%, rgba(250,246,234,0.45), transparent),
-      radial-gradient(1.5px 1.5px at 85% 18%, rgba(250,246,234,0.3), transparent);
-    pointer-events:none;
+      radial-gradient(ellipse 620px 480px at 82% 40%, rgba(242,132,40,0.16), transparent 70%),
+      var(--paper);
+    overflow:hidden;
+    padding:76px 0 64px;
   }
-  .hero-content{ max-width:420px; position:relative; z-index:2; }
-  .hero-eyebrow{ font-size:14px; font-weight:500; opacity:0.65; margin-bottom:14px; }
-  .hero-content h1{
-    font-size:clamp(34px, 4.2vw, 50px);
-    line-height:1.05; margin-bottom:18px;
+  .hero-grid{
+    display:grid; grid-template-columns:1fr 0.92fr; gap:56px; align-items:center;
   }
-  .hero-content p{ font-size:16.5px; opacity:0.8; margin-bottom:30px; max-width:36ch; }
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:40px;} }
 
-  .seam{
-    position:absolute; top:0; bottom:0; left:50%;
-    width:0; z-index:5;
+  .hero-copy{ text-align:left; display:flex; flex-direction:column; align-items:flex-start; }
+  .hero-tag{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:12px; font-weight:800; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--orange-deep); background:var(--orange-soft);
+    padding:7px 13px; border-radius:20px; margin-bottom:22px;
+  }
+  .hero-tag::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--orange);}
+  .hero h1{
+    color:var(--navy-deep);
+    font-size:clamp(42px, 6vw, 74px);
+    max-width:560px;
+    text-align:left;
+  }
+  .hero h1 .accent{color:var(--orange);}
+  .hero-sub{
+    color:#544F44;
+    font-size:16.5px; max-width:460px; margin-top:20px; font-weight:500;
+    text-align:left;
+  }
+  .hero-benefits{
+    list-style:none; margin-top:26px; display:flex; flex-direction:column; gap:11px;
+    text-align:left; align-self:flex-start;
+  }
+  .hero-benefits li{
+    display:flex; align-items:flex-start; gap:10px;
+    font-size:14.5px; font-weight:600; color:var(--navy-deep);
+  }
+  .hero-benefits li::before{
+    content:"✓"; flex-shrink:0; width:20px; height:20px; border-radius:50%;
+    background:var(--navy-deep); color:var(--orange);
     display:flex; align-items:center; justify-content:center;
+    font-size:11px; font-weight:800; margin-top:1px;
   }
-  .seam-line{
-    position:absolute; top:0; bottom:0; left:0; width:3px;
-    background:linear-gradient(180deg, var(--night) 0%, var(--dawn) 50%, var(--day) 100%);
-    transform:translateX(-50%);
+  .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:32px;}
+  .hero-trust-row{
+    display:flex; flex-wrap:wrap; align-items:center; gap:18px; margin-top:30px;
   }
-  .seam-badge{
-    position:relative; z-index:6;
-    background:var(--dawn); color:var(--night);
-    border-radius:50%; width:132px; height:132px;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; box-shadow:0 12px 30px rgba(0,0,0,0.25);
-    padding:14px;
+  .hero-stars{
+    display:flex; align-items:center; gap:8px; font-size:13px; color:#544F44; font-weight:700;
   }
-  .seam-badge .sb-line{ font-family:'Fraunces', serif; font-weight:560; font-size:14px; line-height:1.25; }
-  .seam-badge .sb-sub{ font-size:10.5px; letter-spacing:0.04em; margin-top:6px; opacity:0.75; }
-
-  @media (max-width: 860px){
-    .hero{ flex-direction:column; min-height:auto; }
-    .hero-half{ padding:64px 28px; }
-    .seam{ display:none; }
+  .hero-stars .stars-icons{color:var(--orange); font-size:15px; letter-spacing:1px;}
+  .hero-badges{display:flex; flex-wrap:wrap; gap:9px;}
+  .hero-badges span{
+    font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em;
+    color:var(--navy-deep); border:1.3px solid var(--navy-line); padding:5px 10px; border-radius:20px;
   }
 
-  /* ---------- About ---------- */
-  .about{
-    background:var(--cream);
-    padding:120px 0 100px;
+  .hero-restock{
+    display:inline-flex; align-items:center; gap:10px; margin-top:26px;
+    background:var(--navy-deep); color:var(--cream-text);
+    padding:10px 16px; border-radius:30px; font-size:12.5px; font-weight:700;
+  }
+  .hero-restock .cd-label{color:rgba(245,241,230,0.65); text-transform:uppercase; letter-spacing:0.06em; font-size:10.5px;}
+  .hero-restock .cd-nums{display:flex; gap:6px; font-family:'Anton'; font-size:15px; color:var(--orange);}
+  .hero-restock .cd-nums span{color:rgba(245,241,230,0.4); font-family:'Manrope'; font-size:11px; margin-right:4px; font-weight:600;}
+
+  /* product visual */
+  .hero-product{position:relative; display:flex; justify-content:center; align-items:center; min-height:420px;}
+  .hero-product-glow{
+    position:absolute; width:440px; height:400px; border-radius:50%;
+    background:radial-gradient(circle, rgba(242,132,40,0.28), rgba(242,132,40,0) 70%);
+    filter:blur(4px);
+  }
+  .hero-product-shadow{
+    position:absolute; bottom:6%; width:260px; height:34px; border-radius:50%;
+    background:rgba(29,87,146,0.18); filter:blur(10px);
+  }
+  .hero-product svg{position:relative; z-index:2; width:100%; max-width:340px; filter:drop-shadow(0 26px 30px rgba(29,87,146,0.16));}
+  .hero-float{
+    position:absolute; z-index:3; background:#FFFFFF; color:var(--navy-deep);
+    font-size:12px; font-weight:800; padding:9px 14px; border-radius:30px;
+    box-shadow:0 10px 24px rgba(29,87,146,0.14); display:flex; align-items:center; gap:7px;
+  }
+  .hero-float .fdot{width:7px; height:7px; border-radius:50%; background:var(--orange); flex-shrink:0;}
+  .hero-float.f1{top:8%; left:-2%;}
+  .hero-float.f2{bottom:20%; right:-4%;}
+  @media(max-width:900px){ .hero-float.f1{left:2%;} .hero-float.f2{right:2%;} }
+  @media(max-width:520px){ .hero-float{display:none;} }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    background:var(--ink); color:var(--paper); overflow:hidden; white-space:nowrap;
+    border-top:1px solid rgba(255,255,255,0.1); border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .marquee-track{
+    display:inline-flex; align-items:center; gap:0;
+    animation: scroll 32s linear infinite;
+    padding:13px 0;
+  }
+  .marquee span{
+    font-family:'Anton'; font-size:15px; letter-spacing:0.04em; text-transform:uppercase;
+    padding:0 22px; display:inline-flex; align-items:center; gap:22px;
+  }
+  .marquee span::after{content:"◆"; color:var(--orange); font-size:9px;}
+  @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none;} }
+
+  /* ---------- SIGNATURE KIT ---------- */
+  .signature{background:var(--paper); padding:100px 0;}
+  .sig-grid{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;
+  }
+  @media(max-width:900px){.sig-grid{grid-template-columns:1fr; gap:44px;}}
+  .sig-visual{position:relative; display:flex; justify-content:center;}
+  .sig-visual svg{width:100%; max-width:340px; filter:drop-shadow(0 24px 40px rgba(29,87,146,0.18));}
+  .sig-badge-float{
+    position:absolute; top:8%; right:4%;
+    background:var(--ink); color:var(--paper);
+    font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em;
+    padding:8px 13px; border-radius:2px; transform:rotate(4deg);
+  }
+  @media(max-width:900px){.sig-badge-float{right:12%;}}
+  .sig-copy .kicker{
+    color:var(--orange); font-size:12.5px; font-weight:800; letter-spacing:0.1em;
+    text-transform:uppercase; margin-bottom:14px; display:flex; align-items:center; gap:8px;
+  }
+  .sig-copy .kicker::before{content:""; width:20px; height:2px; background:var(--orange); display:inline-block;}
+  .sig-copy h2{font-size:clamp(38px,5.4vw,60px); margin-bottom:6px;}
+  .sig-price-row{display:flex; align-items:baseline; gap:12px; margin-bottom:20px;}
+  .sig-price{font-family:'Anton'; font-size:26px; color:var(--ink);}
+  .sig-price-note{font-size:13px; color:#7A7466;}
+  .sig-copy p.lead{font-size:15.5px; color:#4A453B; max-width:460px; margin-bottom:32px;}
+  .sig-cols{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:34px;}
+  @media(max-width:520px){.sig-cols{grid-template-columns:1fr;}}
+  .sig-col{
+    background:var(--navy-deep); padding:22px 20px; border-radius:3px;
+    border-top:3px solid var(--navy-mid);
+  }
+  .sig-col.thrive{border-top:3px solid var(--orange);}
+  .sig-col h4{
+    color:var(--cream-text); font-size:13px; font-weight:800; text-transform:uppercase;
+    letter-spacing:0.06em; margin-bottom:14px; display:flex; align-items:center; gap:8px;
+  }
+  .sig-col.thrive h4{color:var(--orange);}
+  .sig-col ul{list-style:none;}
+  .sig-col li{
+    font-size:13.5px; color:rgba(245,241,230,0.82); padding:8px 0;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .sig-col li:first-of-type{border-top:none;}
+  .sig-actions{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .sig-stat{font-size:13px; color:#7A7466;}
+  .sig-stat strong{color:var(--ink); font-weight:800;}
+
+  /* ---------- SECTION HEADS ---------- */
+  .section{padding:96px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+    margin-bottom:48px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(32px,4.4vw,50px); max-width:600px;}
+  .section-head p{max-width:400px; color:#5B564C; font-size:15px;}
+
+  /* ---------- DROPS GRID ---------- */
+  .drops-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:900px){.drops-grid{grid-template-columns:1fr;}}
+  .drop-card{
     position:relative;
-    overflow:hidden;
+    background:var(--navy-deep);
+    color:var(--cream-text);
+    padding:30px 26px 26px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
   }
-  .about .wrap{ position:relative; z-index:1; }
-  .about-deco{
-    position:absolute; z-index:0; pointer-events:none;
+  .drop-card.is-live{background:var(--orange);}
+  .drop-card.is-waitlist{background:var(--navy-mid);}
+  .drop-card .status{
+    display:inline-block; font-size:11px; font-weight:800; letter-spacing:0.08em;
+    text-transform:uppercase; padding:5px 10px; border-radius:2px; margin-bottom:16px;
   }
-  .about-deco-moon{ top:-40px; left:-60px; width:260px; }
-  .about-deco-sun{ bottom:-90px; right:-70px; width:320px; }
-  .about-deco svg{ width:100%; height:auto; display:block; }
-  .about-wash{
-    position:absolute; z-index:0; inset:0; pointer-events:none;
-    background:
-      radial-gradient(420px 320px at 12% 8%, rgba(46,106,99,0.10), transparent 70%),
-      radial-gradient(460px 340px at 90% 85%, rgba(226,147,63,0.14), transparent 70%),
-      radial-gradient(320px 260px at 78% 18%, rgba(192,90,113,0.10), transparent 70%);
-  }
-  .about-pill{
-    position:absolute; z-index:0; pointer-events:none;
-    filter:drop-shadow(0 10px 18px rgba(18,20,28,0.10));
-  }
-  .about-pill svg{ width:100%; height:100%; display:block; }
-  .about-pill-rose{ width:52px; top:64px; right:6%; transform:rotate(-18deg); }
-  .about-pill-teal{ width:44px; bottom:120px; left:2%; transform:rotate(24deg); }
-  .about-pill-dawn{ width:36px; top:46%; right:14%; transform:rotate(-8deg); }
-  @media (max-width: 860px){
-    .about-pill-rose, .about-pill-teal, .about-pill-dawn{ display:none; }
-  }
-  .about-grid{
-    display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:start;
-  }
-  .section-label{
-    font-size:13.5px; font-weight:600; color:var(--dawn-2);
-    margin-bottom:18px;
-  }
-  .about h2{
-    font-size:clamp(28px, 3.2vw, 40px);
-    line-height:1.15;
-  }
-  .about-copy p{
-    font-size:17px; margin-bottom:20px; max-width:52ch; color:#33323a;
-  }
-  .about-copy p:last-child{ margin-bottom:0; }
-  .horizon{
-    height:1px; width:100%;
-    background:linear-gradient(90deg, var(--night) 0%, var(--dawn) 50%, var(--day-2) 100%);
-    margin:56px 0;
-  }
-  @media (max-width: 860px){
-    .about-grid{ grid-template-columns:1fr; gap:32px; }
-    .about{ padding:80px 0 60px; }
-  }
+  .drop-card.is-live .status{background:var(--navy-deep); color:var(--orange);}
+  .drop-card.is-waitlist .status{background:rgba(255,255,255,0.14); color:var(--cream-text);}
+  .drop-card:not(.is-live):not(.is-waitlist) .status{background:rgba(255,255,255,0.1); color:rgba(245,241,230,0.7);}
+  .drop-card h3{font-size:27px; margin-bottom:8px;}
+  .drop-card .desc{font-size:14px; opacity:0.85; margin-bottom:22px; max-width:280px;}
+  .drop-card.is-live .desc{color:rgba(29,87,146,0.82);}
+  .drop-card.is-live h3{color:var(--navy-deep);}
 
-  /* ---------- Duality (what's inside overview) ---------- */
-  .duality{
-    display:grid; grid-template-columns:1fr 1fr;
-  }
-  .duality-col{
-    padding:90px 56px;
-    position:relative;
-    overflow:hidden;
-  }
-  .duality-col.night{
-    color:var(--cream);
-    background:linear-gradient(155deg, #123252 0%, var(--night) 45%, #16406a 100%);
-  }
-  .duality-col.day{
-    color:var(--night);
-    background:linear-gradient(155deg, #fbf3e2 0%, var(--day) 45%, #f6dfb8 100%);
-  }
-  .duality-glow{
-    position:absolute; z-index:0; pointer-events:none; border-radius:50%;
-    filter:blur(2px);
-  }
-  .duality-col.night .duality-glow.g1{
-    width:420px; height:420px; top:-140px; left:-120px;
-    background:radial-gradient(circle, rgba(46,106,99,0.35), transparent 70%);
-  }
-  .duality-col.night .duality-glow.g2{
-    width:380px; height:380px; bottom:-160px; right:-100px;
-    background:radial-gradient(circle, rgba(192,90,113,0.28), transparent 70%);
-  }
-  .duality-col.day .duality-glow.g1{
-    width:420px; height:420px; top:-150px; right:-110px;
-    background:radial-gradient(circle, rgba(226,147,63,0.4), transparent 70%);
-  }
-  .duality-col.day .duality-glow.g2{
-    width:360px; height:360px; bottom:-150px; left:-110px;
-    background:radial-gradient(circle, rgba(192,90,113,0.22), transparent 70%);
-  }
-  .duality-inner{ max-width:440px; margin:0 auto; text-align:center; position:relative; z-index:1; }
-  .duality-col h3{
-    font-size:clamp(24px, 2.6vw, 32px);
-    margin-bottom:10px;
-  }
-  .duality-tag{ font-size:14.5px; opacity:0.75; margin-bottom:36px; }
-  .item-list{ list-style:none; display:flex; flex-direction:column; gap:12px; text-align:left; }
+  .mini-cd{display:flex; gap:14px; margin-bottom:20px;}
+  .mini-cd .u{text-align:left;}
+  .mini-cd .u .n{font-family:'Anton'; font-size:24px; line-height:1;}
+  .mini-cd .u .l{font-size:9.5px; text-transform:uppercase; letter-spacing:0.08em; opacity:0.65;}
+
+  .claim-bar{margin-bottom:22px;}
+  .claim-track{height:6px; background:rgba(255,255,255,0.18); border-radius:3px; overflow:hidden;}
+  .drop-card.is-live .claim-track{background:rgba(29,87,146,0.2);}
+  .claim-fill{height:100%; background:var(--orange); border-radius:3px;}
+  .drop-card.is-live .claim-fill{background:var(--navy-deep);}
+  .claim-text{font-size:12px; margin-top:7px; opacity:0.8;}
+  .drop-card.is-live .claim-text{color:rgba(29,87,146,0.75);}
+
+  .drop-card .btn{width:100%; text-align:center;}
+  .drop-card .btn-solid{background:var(--orange); color:var(--cream-text);}
+  .drop-card.is-live .btn-solid{background:var(--navy-deep); color:var(--cream-text);}
+  .drop-card .btn-disabled{background:rgba(255,255,255,0.1); color:rgba(245,241,230,0.5); cursor:not-allowed;}
+
+  /* ---------- LINEUP SPLIT ---------- */
+  .lineup{background:var(--ink); padding:0;}
+  .lineup-head{padding:80px 0 40px; text-align:center;}
+  .lineup-head h2{color:var(--paper); font-size:clamp(32px,4.4vw,50px);}
+  .lineup-head p{color:rgba(242,238,228,0.6); max-width:520px; margin:14px auto 0; font-size:15px;}
+  .split{display:grid; grid-template-columns:1fr 1fr;}
+  @media(max-width:820px){.split{grid-template-columns:1fr;}}
+  .side{padding:56px 44px 70px; position:relative;}
+  .side.hers{background:var(--rose-deep); border-right:1px solid var(--rose-line);}
+  .side.his{background:var(--navy-deep); border-left:1px solid rgba(255,255,255,0.08);}
+  @media(max-width:820px){.side.hers{border-right:none;} .side.his{border-left:none; border-top:1px solid rgba(255,255,255,0.08);}}
+  .side .kicker{color:var(--orange); font-size:12px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px;}
+  .side h3{color:var(--cream-text); font-size:38px; margin-bottom:14px;}
+  .side .lead{color:rgba(245,241,230,0.72); font-size:14.5px; max-width:360px; margin-bottom:30px;}
+  .item-list{list-style:none;}
   .item-list li{
-    display:flex; align-items:center; gap:16px; padding:16px;
-    border-radius:16px;
-    background:rgba(250,246,234,0.05);
-    border:1px solid rgba(250,246,234,0.09);
-    transition:transform 0.25s ease, background 0.25s ease;
+    display:flex; justify-content:space-between; gap:12px;
+    padding:15px 0; border-top:1px solid rgba(255,255,255,0.1);
+    color:var(--cream-text); font-size:14.5px; font-weight:600;
   }
-  .duality-col.day .item-list li{
-    background:rgba(18,20,28,0.035);
-    border:1px solid rgba(18,20,28,0.08);
-  }
-  .item-list li:hover{ transform:translateY(-2px); }
-  .duality-col.night .item-list li:hover{ background:rgba(250,246,234,0.09); }
-  .duality-col.day .item-list li:hover{ background:rgba(18,20,28,0.06); }
-  .item-icon{
-    width:46px; height:46px; flex-shrink:0; border-radius:13px;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 6px 16px rgba(18,20,28,0.18);
-  }
-  .item-icon svg{ width:22px; height:22px; }
-  .item-icon.ic-rose{ background:var(--rose); color:var(--cream); }
-  .item-icon.ic-teal{ background:var(--teal); color:var(--cream); }
-  .item-icon.ic-dawn{ background:var(--dawn); color:var(--night); }
-  .item-icon.ic-violet{ background:#5c5fc4; color:var(--cream); }
-  .item-icon.ic-coral{ background:#d97a55; color:var(--cream); }
-  .item-text .it-name{ font-weight:600; font-size:15.5px; margin-bottom:3px; }
-  .item-text .it-desc{ font-size:14px; opacity:0.72; }
-  @media (max-width: 860px){
-    .duality{ grid-template-columns:1fr; }
-    .duality-col{ padding:64px 28px; }
+  .item-list li:last-child{border-bottom:1px solid rgba(255,255,255,0.1);}
+  .item-list li span.tag{
+    font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--orange); white-space:nowrap; align-self:flex-start; margin-top:2px;
   }
 
-  /* ---------- Product Showcase ---------- */
-  .product{
-    background:var(--cream);
-    padding:120px 0 130px;
+  /* ---------- TRUST STRIP ---------- */
+  .trust{background:var(--paper); padding:90px 0;}
+  .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:30px;}
+  @media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.trust-grid{grid-template-columns:1fr;}}
+  .trust-item h4{font-size:15px; font-weight:800; margin-bottom:8px; display:flex; align-items:center; gap:10px;}
+  .trust-item .dot{width:9px; height:9px; background:var(--orange); border-radius:50%; flex-shrink:0;}
+  .trust-item p{font-size:13.5px; color:#5B564C;}
+  .trust-note{
+    margin-top:56px; padding-top:36px; border-top:1px solid var(--paper-dim);
+    font-size:13.5px; color:#5B564C; max-width:640px;
   }
-  .product-head{
-    text-align:center; max-width:640px; margin:0 auto 56px;
-  }
-  .product-head h2{ font-size:clamp(30px, 3.6vw, 46px); margin-bottom:16px; }
-  .product-head p{ font-size:17px; color:#4a4952; }
+  .trust-note strong{color:var(--ink);}
 
-  .toggle-row{
-    display:flex; justify-content:center; margin-bottom:56px;
+  /* ---------- SIGNUP / FOOTER ---------- */
+  .signup{
+    background:var(--navy-deep); position:relative; overflow:hidden;
+    padding:90px 0;
   }
-  .toggle{
-    display:inline-flex; background:var(--night); border-radius:100px; padding:5px;
-    position:relative;
+  .signup::before{
+    content:""; position:absolute; right:-10%; top:-30%; width:60%; height:160%;
+    background:var(--navy-mid); opacity:1;
+    clip-path:polygon(30% 0, 100% 0, 70% 100%, 0 100%);
   }
-  .toggle button{
-    position:relative; z-index:2;
-    padding:11px 30px; border-radius:100px;
-    font-size:14.5px; font-weight:600; color:rgba(250,246,234,0.55);
-    transition:color 0.3s ease;
+  .signup-inner{position:relative; z-index:2; max-width:520px;}
+  .signup h2{color:var(--cream-text); font-size:clamp(30px,4.4vw,46px); margin-bottom:16px;}
+  .signup p{color:rgba(245,241,230,0.75); font-size:15px; margin-bottom:28px; max-width:420px;}
+  .signup-form{display:flex; gap:10px; flex-wrap:wrap;}
+  .signup-form input{
+    flex:1; min-width:220px; padding:14px 16px; border-radius:3px; border:1px solid rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.06); color:var(--cream-text); font-family:inherit; font-size:14px;
   }
-  .toggle button.active{ color:var(--night); }
-  .toggle-pill{
-    position:absolute; top:5px; left:5px; height:calc(100% - 10px);
-    width:calc(50% - 5px); border-radius:100px;
-    background:var(--rose-soft);
-    transition:transform 0.35s cubic-bezier(.65,0,.35,1), background 0.35s ease;
-    z-index:1;
-  }
-  .toggle-pill.to-him{ transform:translateX(100%); background:var(--teal-soft); }
+  .signup-form input::placeholder{color:rgba(245,241,230,0.4);}
+  .signup-form input:focus{outline:2px solid var(--orange); outline-offset:1px;}
+  .signup-fine{font-size:12px; color:rgba(245,241,230,0.45); margin-top:12px;}
 
-  .kit-card{
-    display:grid; grid-template-columns:0.85fr 1.15fr;
-    gap:0;
-    border-radius:22px; overflow:hidden;
-    border:1px solid var(--line);
-    background:var(--night);
-  }
-  .kit-visual{
-    background:var(--night);
-    display:flex; align-items:center; justify-content:center;
-    padding:50px; position:relative;
-    transition:background 0.4s ease;
-  }
-  .kit-visual svg{ width:100%; max-width:280px; }
-  .kit-figure{ width:100%; display:flex; justify-content:center; }
-  .kit-details{
-    background:var(--cream); color:var(--night);
-    padding:56px 54px;
-  }
-  .kit-badge{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; font-weight:600; letter-spacing:0.02em;
-    padding:6px 14px; border-radius:100px; margin-bottom:20px;
-    background:var(--rose-soft); color:#7a2f42;
-    transition:background 0.35s ease, color 0.35s ease;
-  }
-  .kit-badge.for-him{ background:var(--teal-soft); color:#1d4842; }
-  .kit-details h3{ font-size:clamp(24px, 2.6vw, 30px); margin-bottom:14px; }
-  .kit-details > p.intro{ font-size:16px; color:#4a4952; margin-bottom:30px; max-width:44ch; }
-
-  .formula-list{ list-style:none; margin-bottom:34px; }
-  .formula-list li{
-    display:flex; justify-content:space-between; gap:16px;
-    padding:13px 0; border-top:1px solid var(--line);
-    font-size:15px;
-  }
-  .formula-list li:last-child{ border-bottom:1px solid var(--line); }
-  .formula-list .f-name{ font-weight:600; }
-  .formula-list .f-desc{ color:#5c5b64; text-align:right; max-width:56%; }
-
-  .kit-price-row{
-    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px;
-    padding-top:6px;
-  }
-  .kit-price .amount{ font-family:'Fraunces', serif; font-size:30px; font-weight:560; }
-  .kit-price .terms{ font-size:13.5px; color:#6b6a72; margin-top:2px; }
-
-  @media (max-width: 900px){
-    .kit-card{ grid-template-columns:1fr; }
-    .kit-details{ padding:40px 28px; }
-    .kit-visual{ padding:40px; }
-  }
-
-  /* ---------- For Parents / Students ---------- */
-  .audience{
-    color:var(--cream);
-    background:linear-gradient(155deg, #123252 0%, var(--night) 45%, #16406a 100%);
-    padding:110px 0;
-    position:relative;
-    overflow:hidden;
-  }
-  .audience .wrap{ position:relative; z-index:1; }
-  .aud-glow{
-    position:absolute; z-index:0; pointer-events:none; border-radius:50%;
-    filter:blur(2px);
-  }
-  .aud-glow.g1{
-    width:420px; height:420px; top:-150px; left:-130px;
-    background:radial-gradient(circle, rgba(46,106,99,0.32), transparent 70%);
-  }
-  .aud-glow.g2{
-    width:380px; height:380px; bottom:-170px; right:-110px;
-    background:radial-gradient(circle, rgba(192,90,113,0.28), transparent 70%);
-  }
-  .audience-head{ text-align:center; max-width:720px; margin:0 auto 60px; position:relative; z-index:1; }
-  .audience-head h2{ font-size:clamp(22px, 3.2vw, 40px); white-space:nowrap; }
-  @media (max-width: 640px){
-    .audience-head h2{ white-space:normal; font-size:clamp(24px, 6vw, 32px); }
-  }
-  .audience-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:28px;
-    position:relative; z-index:1;
-  }
-  .aud-card{
-    background:var(--cream);
-    border-radius:20px; padding:44px 40px;
-    border:1px solid rgba(250,246,234,0.12);
-    box-shadow:0 20px 44px rgba(9,12,20,0.28);
-    transition:transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .aud-card:hover{ transform:translateY(-4px); box-shadow:0 26px 54px rgba(9,12,20,0.34); }
-  .aud-card .aud-icon{
-    width:52px; height:52px; border-radius:14px;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 8px 20px rgba(18,20,28,0.3);
-    margin-bottom:22px;
-  }
-  .aud-card .aud-icon svg{ width:26px; height:26px; }
-  .aud-icon.ic-teal{ background:var(--teal); color:var(--cream); }
-  .aud-icon.ic-rose{ background:var(--rose); color:var(--cream); }
-  .aud-card h3{ font-size:22px; margin-bottom:14px; color:var(--night); }
-  .aud-card p{ font-size:15.5px; color:#4a4952; margin-bottom:24px; max-width:42ch; }
-  .aud-card a.btn{ font-size:14px; padding:10px 22px; }
-  @media (max-width: 760px){ .audience-grid{ grid-template-columns:1fr; } }
-
-  /* ---------- Coming Soon ---------- */
-  .coming-soon{
-    background:linear-gradient(155deg, #fbf3e2 0%, var(--day) 45%, #f6dfb8 100%);
-    color:var(--night);
-    padding:100px 0;
-    position:relative;
-    overflow:hidden;
-    text-align:center;
-  }
-  .coming-soon .cs-glow{
-    position:absolute; z-index:0; pointer-events:none; border-radius:50%;
-    filter:blur(2px);
-  }
-  .coming-soon .cs-glow.g1{
-    width:420px; height:420px; top:-160px; left:50%; margin-left:-380px;
-    background:radial-gradient(circle, rgba(226,147,63,0.38), transparent 70%);
-  }
-  .coming-soon .cs-glow.g2{
-    width:380px; height:380px; bottom:-170px; right:50%; margin-right:-380px;
-    background:radial-gradient(circle, rgba(192,90,113,0.22), transparent 70%);
-  }
-  .cs-deco{ position:absolute; z-index:0; pointer-events:none; }
-  .cs-deco svg{ width:100%; height:auto; display:block; }
-  .cs-deco-moon{ top:-30px; left:-50px; width:200px; }
-  .cs-deco-sun{ bottom:-70px; right:-60px; width:260px; }
-  .cs-pill{ position:absolute; z-index:0; pointer-events:none; filter:drop-shadow(0 10px 18px rgba(18,20,28,0.1)); }
-  .cs-pill svg{ width:100%; height:100%; display:block; }
-  .cs-pill-rose{ width:46px; top:18%; left:8%; transform:rotate(-16deg); }
-  .cs-pill-teal{ width:40px; bottom:16%; right:9%; transform:rotate(20deg); }
-  .cs-pill-dawn{ width:30px; top:24%; right:14%; transform:rotate(-10deg); }
-  @media (max-width: 860px){
-    .cs-pill-rose, .cs-pill-teal, .cs-pill-dawn{ display:none; }
-  }
-  .coming-soon .wrap{ position:relative; z-index:1; }
-  .cs-badge{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; font-weight:600; letter-spacing:0.02em;
-    padding:7px 16px; border-radius:100px; margin-bottom:22px;
-    background:rgba(226,147,63,0.18); border:1px solid rgba(201,122,46,0.35); color:var(--dawn-2);
-  }
-  .cs-badge .dot{ width:6px; height:6px; border-radius:50%; background:var(--dawn-2); }
-  .coming-soon h2{ font-size:clamp(28px, 3.6vw, 44px); max-width:16ch; margin:0 auto 16px; }
-  .coming-soon > .wrap > p{ font-size:16.5px; opacity:0.7; color:#4a4952; max-width:46ch; margin:0 auto 36px; }
-  .cs-form{
-    display:flex; max-width:420px; margin:0 auto; gap:8px;
-    background:rgba(250,246,234,0.65); border:1.5px solid rgba(18,20,28,0.14);
-    border-radius:100px; padding:5px;
-  }
-  .cs-form input{
-    flex:1; border:none; background:none; color:var(--night);
-    padding:11px 18px; font:inherit; font-size:14.5px; outline:none;
-  }
-  .cs-form input::placeholder{ color:rgba(18,20,28,0.4); }
-  .cs-note{ font-size:12.5px; opacity:0.55; margin-top:16px; }
-  @media (max-width: 560px){
-    .cs-form{ flex-direction:column; border-radius:20px; padding:10px; }
-    .cs-form .btn{ width:100%; }
-  }
-
-  /* ---------- Footer / Subscribe ---------- */
-  footer{ background:var(--night); color:var(--cream); padding:90px 0 40px; }
+  footer{background:var(--ink); padding:50px 0 34px;}
   .footer-top{
-    display:grid; grid-template-columns:1.3fr 0.7fr 0.7fr 0.7fr; gap:40px;
-    padding-bottom:60px; border-bottom:1px solid rgba(250,246,234,0.14);
+    display:flex; justify-content:space-between; align-items:flex-start; gap:30px; flex-wrap:wrap;
+    padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,0.1);
   }
-  .footer-brand .logo{ margin-bottom:16px; color:var(--cream); }
-  .footer-brand p{ font-size:14.5px; color:rgba(250,246,234,0.65); max-width:34ch; margin-bottom:24px; }
-  .subscribe-form{
-    display:flex; max-width:360px; border:1.5px solid rgba(250,246,234,0.35); border-radius:100px; padding:4px;
-  }
-  .subscribe-form input{
-    flex:1; border:none; background:none; color:var(--cream); padding:9px 16px; font:inherit; font-size:14px; outline:none;
-  }
-  .subscribe-form input::placeholder{ color:rgba(250,246,234,0.45); }
-  .subscribe-form button{
-    background:var(--dawn); color:var(--cream); border-radius:100px;
-    padding:9px 20px; font-size:14px; font-weight:600;
-  }
-  .footer-col h4{ font-size:14px; font-weight:600; margin-bottom:18px; color:var(--cream); }
-  .footer-col ul{ list-style:none; }
-  .footer-col li{ margin-bottom:12px; font-size:14.5px; color:rgba(250,246,234,0.65); }
-  .footer-col a:hover{ color:var(--dawn); }
-  .footer-bottom{
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
-    padding-top:28px; font-size:12.5px; color:rgba(250,246,234,0.45);
-  }
-  .footer-bottom .disclaimer{ max-width:640px; }
-  @media (max-width: 860px){
-    .footer-top{ grid-template-columns:1fr 1fr; }
-  }
-  @media (max-width: 560px){
-    .footer-top{ grid-template-columns:1fr; }
-    .nav-inner nav{ display:none; }
-  }
+  .footer-cols{display:flex; gap:56px; flex-wrap:wrap;}
+  .footer-col h5{color:rgba(245,241,230,0.5); font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;}
+  .footer-col a{display:block; color:var(--paper); font-size:14px; opacity:0.85; margin-bottom:10px;}
+  .footer-col a:hover{opacity:1; color:var(--orange);}
+  .footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:24px; flex-wrap:wrap; gap:12px;}
+  .footer-bottom p{color:rgba(245,241,230,0.4); font-size:12.5px;}
+
+  :focus-visible{outline:2px solid var(--orange); outline-offset:2px;}
 </style>
 </head>
 <body>
 
-<header>
+<!-- NAV -->
+<nav class="nav">
   <div class="nav-inner">
-    <a href="#" class="logo"><img src="https://daynight.onepercentdesign.com/logo_colored.png" alt="Day/Night"></a>
-    <nav>
-      <ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#inside">What's Inside</a></li>
-        <li><a href="#kit" data-mode="her">Her Kit</a></li>
-        <li><a href="#kit" data-mode="him">His Kit</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="nav-cta">
-      <a href="#kit" class="btn btn-dark">Get the Kit</a>
+    <a href="#" class="logo-lockup"><img src="https://daynight.onepercentdesign.com/logo_colored.png" alt="Night Day"></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#signature-kit">Survive and Thrive</a>
+        <a href="#drops">The Drops</a>
+        <a href="#lineup">Lineup</a>
+        <a href="#trust">Staying Safe</a>
+      </div>
+      <a href="#signup" class="btn btn-orange nav-cta">Get the Kit</a>
     </div>
+    <button class="burger" aria-label="Menu">☰</button>
   </div>
-</header>
+</nav>
 
-<section class="value-strip">
-  <div class="wrap">
-    <p class="vs-statement">The <strong>Survive &amp; Thrive Kit</strong> — safety essentials for the night out, supplements and hydration for the morning after. One subscription, formulated separately for her and him.</p>
-    <div class="vs-pills">
-      <span class="vs-pill vs-night"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>Night safety kit</span>
-      <span class="vs-pill vs-day"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z"/></svg>Day recovery supplements</span>
-      <span class="vs-pill vs-drop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 8l9-5 9 5"/></svg>New drop every 4 weeks</span>
-    </div>
-  </div>
-</section>
-
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-half hero-night">
-    <div class="hero-scene" aria-hidden="true">
-      <svg viewBox="0 0 900 760" preserveAspectRatio="xMidYMax slice">
-        <!-- skyline -->
-        <g fill="var(--night-3)">
-          <rect x="520" y="360" width="80" height="400"/>
-          <rect x="600" y="300" width="60" height="460"/>
-          <rect x="660" y="400" width="90" height="360"/>
-          <rect x="750" y="250" width="70" height="510"/>
-          <rect x="470" y="440" width="55" height="320"/>
-          <rect x="820" y="340" width="70" height="420"/>
-        </g>
-        <g fill="none" stroke="rgba(226,147,63,0.55)" stroke-width="2">
-          <path d="M525 380h10M525 410h10M525 440h10M525 470h10M525 500h10M525 530h10"/>
-          <path d="M605 320h8M605 350h8M605 380h8M605 410h8M605 440h8"/>
-          <path d="M670 420h10M670 450h10M670 480h10M670 510h10"/>
-          <path d="M758 270h8M758 300h8M758 330h8M758 360h8M758 390h8"/>
-          <path d="M828 360h8M828 390h8M828 420h8M828 450h8"/>
-        </g>
-        <!-- string lights -->
-        <path d="M0 90 C 180 190, 380 20, 560 130 S 900 60, 900 60" fill="none" stroke="rgba(250,246,234,0.18)" stroke-width="2"/>
-        <g fill="var(--dawn)">
-          <circle cx="40" cy="105" r="5"/>
-          <circle cx="140" cy="150" r="5"/>
-          <circle cx="240" cy="128" r="5"/>
-          <circle cx="330" cy="70" r="5"/>
-          <circle cx="420" cy="55" r="5"/>
-          <circle cx="500" cy="95" r="5"/>
-          <circle cx="600" cy="120" r="5"/>
-          <circle cx="700" cy="85" r="5"/>
-          <circle cx="800" cy="60" r="5"/>
-        </g>
-        <!-- ground -->
-        <rect x="0" y="640" width="900" height="120" fill="var(--night-2)"/>
-        <!-- students, walking silhouettes -->
-        <g fill="var(--night-3)">
-          <g transform="translate(120,520)">
-            <circle cx="0" cy="0" r="17"/>
-            <path d="M-22 40 C -22 0, 22 0, 22 40 L 30 130 L 12 130 L 4 60 L -4 60 L -12 130 L -30 130 Z"/>
+  <div class="wrap hero-grid">
+
+    <div class="hero-copy">
+      <span class="hero-tag">Premium Wellness + Safety · For Incoming Freshmen</span>
+      <h1>Own the night.<br>Seize the <span class="accent">day.</span></h1>
+      <p class="hero-sub">Night Day was built for one thing: the duality of college life. Survive &amp; Thrive pairs the protection you need on a night out with the supplements and hydration that get you up the next morning — productive, healthy, and focused. Delivered every drop, by subscription.</p>
+
+      <ul class="hero-benefits">
+        <li>Electrolyte + multivitamin hydration blend</li>
+        <li>Pre-Party Defense Supplements</li>
+        <li>Non-drowsy, caffeine-free focus support</li>
+      </ul>
+
+      <div class="hero-actions">
+        <a href="#signature-kit" class="btn btn-orange">Subscribe &amp; Save 15%</a>
+        <a href="#drops" class="btn btn-ghost" style="border-color:var(--navy-line); color:var(--navy-deep);">Shop a Single Drop</a>
+      </div>
+
+      <div class="hero-trust-row">
+        <div class="hero-stars"><span class="stars-icons">★★★★★</span> 4.8 (3,200+ students)</div>
+        <div class="hero-badges">
+          <span>Non-GMO</span>
+          <span>Vegan</span>
+          <span>3rd-Party Tested</span>
+        </div>
+      </div>
+
+      <div class="hero-restock" id="hero-countdown" aria-live="polite">
+        <span class="cd-label">Halloweekend Drop closes in</span>
+        <span class="cd-nums">
+          <span id="h-days">00</span>d<span id="h-hours">00</span>h<span id="h-mins">00</span>m<span id="h-secs">00</span>s
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-product">
+      <div class="hero-product-glow" aria-hidden="true"></div>
+      <div class="hero-product-shadow" aria-hidden="true"></div>
+      <div class="hero-float f1"><span class="fdot"></span>Vitamins + Hydration</div>
+      <div class="hero-float f2"><span class="fdot"></span>Test Strips Included</div>
+
+      <svg viewBox="0 0 380 440" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+        <!-- ===== SAFETY TEST STRIP CARD (back layer, lower right) ===== -->
+        <g transform="translate(214,246) rotate(-9)">
+          <rect x="0" y="0" width="128" height="152" rx="14" fill="#FCFAF4" stroke="rgba(29,87,146,0.16)" stroke-width="2"/>
+          <rect x="0" y="0" width="128" height="38" rx="14" fill="#1D5792"/>
+          <rect x="0" y="24" width="128" height="14" fill="#1D5792"/>
+          <text x="64" y="25" text-anchor="middle" font-family="Anton" font-size="12" fill="#F5F1E6" letter-spacing="0.5">TEST STRIPS</text>
+
+          <!-- three strip lanes -->
+          <g>
+            <circle cx="18" cy="60" r="7" fill="#F28428"/>
+            <rect x="30" y="55" width="82" height="10" rx="5" fill="#EDE7D8"/>
           </g>
-          <g transform="translate(205,548) scale(0.92)">
-            <circle cx="0" cy="0" r="17"/>
-            <path d="M-24 42 C -24 0, 24 0, 24 42 L 34 128 L 14 128 L 5 62 L -5 62 L -14 128 L -34 128 Z"/>
+          <g>
+            <circle cx="18" cy="86" r="7" fill="#1D5792"/>
+            <rect x="30" y="81" width="82" height="10" rx="5" fill="#EDE7D8"/>
           </g>
-          <g transform="translate(70,560) scale(0.85)">
-            <circle cx="0" cy="0" r="17"/>
-            <path d="M-20 38 C -20 0, 20 0, 20 38 L 26 132 L 10 132 L 3 58 L -3 58 L -10 132 L -26 132 Z"/>
+          <g>
+            <circle cx="18" cy="112" r="7" fill="#F28428"/>
+            <rect x="30" y="107" width="82" height="10" rx="5" fill="#EDE7D8"/>
           </g>
+
+          <!-- verified badge -->
+          <circle cx="102" cy="132" r="15" fill="#1D5792"/>
+          <path d="M95,132 L100,137 L110,125" fill="none" stroke="#F28428" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="20" y="138" font-family="Manrope" font-weight="800" font-size="8" fill="#544F44" letter-spacing="0.5">DRINK &amp; SAFETY CHECK</text>
+        </g>
+
+        <!-- ===== DAILY VITAMIN BLISTER PACK (mid layer, upper right) ===== -->
+        <g transform="translate(206,44) rotate(7)">
+          <rect x="0" y="0" width="138" height="88" rx="16" fill="#F28428"/>
+          <rect x="0" y="0" width="138" height="88" rx="16" fill="none" stroke="rgba(29,87,146,0.18)" stroke-width="2"/>
+          <!-- blister pockets, 5x2 -->
+          <g fill="#FCFAF4" opacity="0.92">
+            <circle cx="20" cy="26" r="9"/><circle cx="46" cy="26" r="9"/><circle cx="72" cy="26" r="9"/><circle cx="98" cy="26" r="9"/><circle cx="124" cy="26" r="9"/>
+            <circle cx="20" cy="52" r="9"/><circle cx="46" cy="52" r="9"/><circle cx="72" cy="52" r="9"/><circle cx="98" cy="52" r="9"/><circle cx="124" cy="52" r="9"/>
+          </g>
+          <text x="69" y="76" text-anchor="middle" font-family="Anton" font-size="11" fill="#1D5792" letter-spacing="0.5">DAILY VITAMINS</text>
+        </g>
+
+        <!-- ===== SUPPLEMENT BOTTLE (front layer, left) ===== -->
+        <g transform="translate(-28,14) scale(0.86)">
+          <ellipse cx="150" cy="118" rx="42" ry="10" fill="#1D5792"/>
+          <rect x="120" y="66" width="60" height="56" rx="8" fill="#1D5792"/>
+          <rect x="108" y="108" width="84" height="24" rx="6" fill="#0A1528"/>
+          <defs>
+            <clipPath id="bottleClip">
+              <rect x="76" y="122" width="148" height="270" rx="24"/>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#bottleClip)">
+            <rect x="76" y="122" width="148" height="270" fill="#FCFAF4"/>
+            <rect x="76" y="122" width="148" height="270" fill="#F28428" clip-path="polygon(0 62%, 100% 40%, 100% 100%, 0 100%)"/>
+          </g>
+          <rect x="76" y="122" width="148" height="270" rx="24" fill="none" stroke="rgba(29,87,146,0.14)" stroke-width="2"/>
+
+          <!-- label -->
+          <rect x="94" y="176" width="112" height="128" rx="6" fill="#1D5792"/>
+          <g transform="translate(126,186) scale(0.28)">
+            <defs>
+              <clipPath id="bottleShield">
+                <path d="M100,8 L186,38 L186,118 C186,168 150,196 100,212 C50,196 14,168 14,118 L14,38 Z"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#bottleShield)">
+              <rect x="0" y="0" width="100" height="220" fill="#F5F1E6"/>
+              <rect x="100" y="0" width="100" height="220" fill="#F28428"/>
+            </g>
+            <path d="M62,70 a26,26 0 1 0 0,52 a20,20 0 1 1 0,-52 Z" fill="#1D5792"/>
+            <circle cx="140" cy="100" r="17" fill="#1D5792"/>
+          </g>
+          <text x="150" y="250" text-anchor="middle" font-family="Anton" font-size="17" fill="#F5F1E6" letter-spacing="0.5">SURVIVE</text>
+          <text x="150" y="270" text-anchor="middle" font-family="Anton" font-size="17" fill="#F28428" letter-spacing="0.5">&amp; THRIVE</text>
+          <text x="150" y="292" text-anchor="middle" font-family="Manrope" font-weight="700" font-size="9" fill="rgba(245,241,230,0.6)" letter-spacing="1.5">2-IN-1 CAMPUS FORMULA</text>
         </g>
       </svg>
     </div>
-    <div class="hero-scene-fade" aria-hidden="true"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">The Night</div>
-      <h1>Own the night out.</h1>
-      <p>Drink test strips and the defense supplements that go wherever the night does — small enough to disappear into a pocket.</p>
-      <a href="#inside" class="btn btn-outline-cream">See the safety kit</a>
-    </div>
+
   </div>
-  <div class="hero-half hero-day">
-    <div class="hero-scene" aria-hidden="true">
-      <svg viewBox="0 0 900 760" preserveAspectRatio="xMidYMax slice">
-        <!-- sun glow -->
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" role="presentation">
+  <div class="marquee-track">
+    <span>The O-Week Drop</span><span>The Halloweekend Drop</span><span>The Spring Break Drop</span><span>The Finals Fuel Drop</span>
+    <span>The O-Week Drop</span><span>The Halloweekend Drop</span><span>The Spring Break Drop</span><span>The Finals Fuel Drop</span>
+  </div>
+</div>
+
+<!-- SIGNATURE KIT -->
+<section class="signature" id="signature-kit">
+  <div class="wrap sig-grid">
+
+    <div class="sig-visual">
+      <span class="sig-badge-float">Always In Stock</span>
+      <svg viewBox="0 0 360 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(226,147,63,0.55)"/>
-            <stop offset="100%" stop-color="rgba(226,147,63,0)"/>
-          </radialGradient>
+          <clipPath id="pouchClip">
+            <rect x="30" y="70" width="300" height="320" rx="26"/>
+          </clipPath>
         </defs>
-        <circle cx="700" cy="170" r="230" fill="url(#sunGlow)"/>
-        <circle cx="700" cy="170" r="72" fill="var(--dawn)"/>
-        <g stroke="var(--dawn)" stroke-width="3" stroke-linecap="round" opacity="0.7">
-          <path d="M700 60v-34"/>
-          <path d="M700 280v34"/>
-          <path d="M810 170h34"/>
-          <path d="M590 170h-34"/>
-          <path d="M778 92l24-24"/>
-          <path d="M622 248l-24 24"/>
-          <path d="M778 248l24 24"/>
-          <path d="M622 92l-24-24"/>
+        <!-- drawstring -->
+        <path d="M110,70 Q110,30 180,30 Q250,30 250,70" fill="none" stroke="#1D5792" stroke-width="10" stroke-linecap="round"/>
+        <circle cx="140" cy="52" r="7" fill="#F28428"/>
+        <circle cx="220" cy="52" r="7" fill="#F28428"/>
+
+        <g clip-path="url(#pouchClip)">
+          <rect x="30" y="70" width="300" height="320" fill="#1D5792"/>
+          <polygon points="330,70 330,390 130,390" fill="#F28428"/>
         </g>
-        <!-- birds -->
-        <g stroke="var(--night)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.35">
-          <path d="M470 110q10 -12 20 0q10 -12 20 0"/>
-          <path d="M540 150q8 -10 16 0q8 -10 16 0"/>
-          <path d="M420 165q9 -11 18 0q9 -11 18 0"/>
-        </g>
-        <!-- rooftop skyline -->
-        <g fill="var(--day-2)">
-          <rect x="520" y="420" width="80" height="340"/>
-          <rect x="600" y="460" width="60" height="300"/>
-          <polygon points="600,460 630,420 660,460"/>
-          <rect x="660" y="440" width="90" height="320"/>
-          <rect x="750" y="500" width="70" height="260"/>
-          <rect x="470" y="480" width="55" height="280"/>
-          <rect x="820" y="450" width="70" height="310"/>
-        </g>
-        <!-- ground -->
-        <rect x="0" y="700" width="900" height="60" fill="var(--day-2)"/>
-        <!-- figure, stretching awake -->
-        <g fill="var(--night)" opacity="0.55">
-          <g transform="translate(150,470)">
-            <circle cx="0" cy="0" r="18"/>
-            <path d="M-4 30 L-46 -34 L-34 -44 L4 6 L4 -6 L34 6 L38 -6 L2 40 Z" opacity="0"/>
-            <path d="M0 22 C -20 22, -22 60, -22 100 L -30 210 L -12 210 L -2 110 L 2 110 L 12 210 L 30 210 L 22 100 C 22 60, 20 22, 0 22 Z"/>
-            <path d="M-6 30 L-52 -40 L-40 -50" fill="none" stroke="var(--night)" stroke-width="14" stroke-linecap="round"/>
-            <path d="M6 30 L52 -40 L40 -50" fill="none" stroke="var(--night)" stroke-width="14" stroke-linecap="round"/>
+        <rect x="30" y="70" width="300" height="320" rx="26" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+
+        <!-- shield emblem centered on pouch -->
+        <g transform="translate(120,150) scale(0.6)">
+          <defs>
+            <clipPath id="pouchShield">
+              <path d="M100,8 L186,38 L186,118 C186,168 150,196 100,212 C50,196 14,168 14,118 L14,38 Z"/>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#pouchShield)">
+            <rect x="0" y="0" width="100" height="220" fill="#F5F1E6"/>
+            <rect x="100" y="0" width="100" height="220" fill="#F5F1E6"/>
           </g>
+          <path d="M100,8 L186,38 L186,118 C186,168 150,196 100,212 C50,196 14,168 14,118 L14,38 Z" fill="none" stroke="#1D5792" stroke-width="6"/>
+          <path d="M62,70 a26,26 0 1 0 0,52 a20,20 0 1 1 0,-52 Z" fill="#1D5792"/>
+          <circle cx="140" cy="100" r="17" fill="#F28428"/>
+          <path d="M140,55 L160,80 L146,80 L146,150 L134,150 L134,80 L120,80 Z" fill="#F28428"/>
         </g>
-        <!-- hydration glass -->
-        <g transform="translate(255,600)" opacity="0.65">
-          <path d="M-16 -30 L16 -30 L11 40 L-11 40 Z" fill="none" stroke="var(--night)" stroke-width="3.5"/>
-          <path d="M-13 -8 L13 -8" stroke="var(--night)" stroke-width="3"/>
-          <path d="M0 -52 C -10 -40, -10 -30, 0 -20 C 10 -30, 10 -40, 0 -52 Z" fill="var(--dawn)"/>
-        </g>
+
+        <text x="180" y="330" text-anchor="middle" font-family="Anton" font-size="26" fill="#F5F1E6" letter-spacing="1">SURVIVE</text>
+        <text x="180" y="360" text-anchor="middle" font-family="Anton" font-size="26" fill="#1D5792" letter-spacing="1">&amp; THRIVE</text>
       </svg>
     </div>
-    <div class="hero-scene-fade day-fade" aria-hidden="true"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">The Day</div>
-      <h1>Win the morning after.</h1>
-      <p>Hydration, focus, and recovery, formulated by gender so freshman year has a fighting chance at 8am.</p>
-      <a href="#kit" class="btn btn-outline-night">See the recovery kit</a>
+
+    <div class="sig-copy">
+      <div class="kicker">The Flagship Kit</div>
+      <h2>Survive &amp; Thrive</h2>
+      <div class="sig-price-row">
+        <span class="sig-price">$39</span>
+        <span class="sig-price-note">per drop · subscribe &amp; save 15%, or buy once</span>
+      </div>
+      <p class="lead">Night Day exists to balance one thing: the duality of college life. Survive &amp; Thrive pairs the safety essentials that keep you protected on a night out with the supplements and hydration that get you up the next morning — productive, healthy, and focused. Subscribe once and every themed drop ships automatically, or grab a single kit whenever you need it.</p>
+
+      <div class="sig-cols">
+        <div class="sig-col survive">
+          <h4>Survive · Night</h4>
+          <ul>
+            <li>SafeSip Drink Test Strips</li>
+            <li>Pre-Party Defense Supplements</li>
+            <li>Night-Cap Recovery Shot</li>
+            <li>Electrolyte Hydration Mix</li>
+          </ul>
+        </div>
+        <div class="sig-col thrive">
+          <h4>Thrive · Day</h4>
+          <ul>
+            <li>Electrolyte + multivitamin hydration packets (6ct)</li>
+            <li>B12 + focus supplement blend</li>
+            <li>Non-drowsy, caffeine-free energy gum</li>
+            <li>Daily recovery greens packet</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sig-actions">
+        <a href="#signup" class="btn btn-orange">Subscribe — $39/drop</a>
+        <span class="sig-stat">Chosen by <strong>1 in 3</strong> incoming freshmen on campus</span>
+      </div>
     </div>
+
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="about-wash" aria-hidden="true"></div>
-  <div class="about-deco about-deco-moon" aria-hidden="true">
-    <svg viewBox="0 0 260 260" fill="none">
-      <defs>
-        <linearGradient id="moonGrad" x1="60" y1="20" x2="220" y2="200" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="var(--night)"/>
-          <stop offset="100%" stop-color="var(--teal)"/>
-        </linearGradient>
-      </defs>
-      <path d="M170 40a95 95 0 1 0 60 130 78 78 0 0 1 -60 -130z" fill="url(#moonGrad)" opacity="0.85"/>
-      <circle cx="222" cy="150" r="4" fill="var(--dawn)"/>
-      <circle cx="60" cy="55" r="3" fill="var(--rose)"/>
-      <circle cx="98" cy="30" r="2.2" fill="var(--dawn)"/>
-      <circle cx="38" cy="108" r="2.2" fill="var(--teal)"/>
-    </svg>
-  </div>
-  <div class="about-deco about-deco-sun" aria-hidden="true">
-    <svg viewBox="0 0 320 320" fill="none">
-      <defs>
-        <radialGradient id="sunGlow2" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="rgba(226,147,63,0.45)"/>
-          <stop offset="100%" stop-color="rgba(226,147,63,0)"/>
-        </radialGradient>
-      </defs>
-      <circle cx="230" cy="230" r="130" fill="url(#sunGlow2)"/>
-      <circle cx="230" cy="230" r="58" fill="var(--dawn)" opacity="0.9"/>
-      <g stroke="var(--dawn-2)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.55">
-        <path d="M230 148v-22"/>
-        <path d="M230 312v-22"/>
-        <path d="M148 230h-22"/>
-        <path d="M312 230h-22"/>
-        <path d="M172 172l-16 -16"/>
-        <path d="M288 288l-16 -16"/>
-        <path d="M288 172l16 -16"/>
-        <path d="M172 288l-16 -16"/>
-      </g>
-    </svg>
-  </div>
-  <div class="about-pill about-pill-rose" aria-hidden="true">
-    <svg viewBox="0 0 60 30" fill="none">
-      <rect x="1" y="1" width="58" height="28" rx="14" fill="var(--rose-soft)" stroke="var(--rose)" stroke-width="1.5"/>
-      <path d="M30 1v28" stroke="var(--rose)" stroke-width="1.5"/>
-      <rect x="1" y="1" width="29" height="28" rx="14" fill="var(--rose)"/>
-    </svg>
-  </div>
-  <div class="about-pill about-pill-teal" aria-hidden="true">
-    <svg viewBox="0 0 60 30" fill="none">
-      <rect x="1" y="1" width="58" height="28" rx="14" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5"/>
-      <path d="M30 1v28" stroke="var(--teal)" stroke-width="1.5"/>
-      <rect x="1" y="1" width="29" height="28" rx="14" fill="var(--teal)"/>
-    </svg>
-  </div>
-  <div class="about-pill about-pill-dawn" aria-hidden="true">
-    <svg viewBox="0 0 40 40" fill="none">
-      <circle cx="20" cy="20" r="18" fill="var(--dawn)" opacity="0.9"/>
-      <path d="M20 10v20M10 20h20" stroke="var(--cream)" stroke-width="1.6" opacity="0.55"/>
-    </svg>
-  </div>
+<!-- DROPS -->
+<section class="section" id="drops">
   <div class="wrap">
-    <div class="about-grid">
-      <div>
-        <div class="section-label">Our mission</div>
-        <h2>College doesn't run on one schedule. Neither should a wellness kit.</h2>
-      </div>
-      <div class="about-copy">
-        <p>Day/Night is a premium wellness and safety brand, built for incoming college freshmen around one product: the Survive &amp; Thrive Kit.</p>
-        <p>Our mission is to balance the duality of the college experience. The Night half keeps students safe and protected during their social outings — knowing what's in a drink, having a way to call for help, getting home safe. The Day half covers the supplements and hydration it takes to wake up productive, healthy, and focused, so a late night doesn't cost the whole next day.</p>
-        <p>The kit ships on a subscription, drop by drop, and it's built for two people at once: the student who uses it, and the parent who's often the one setting it up. Formulas are separate for women and men, because the science is too — and one less thing to manage is the whole point.</p>
-      </div>
+    <div class="section-head">
+      <h2>The drop schedule</h2>
+      <p>Subscribe once and every themed drop ships automatically — or claim a single kit while it's live. Miss the window, wait for the next one.</p>
     </div>
-    <div class="horizon"></div>
+    <div class="drops-grid">
+
+      <div class="drop-card">
+        <span class="status">Sold Out · Aug 2026</span>
+        <h3>The O-Week Drop</h3>
+        <p class="desc">Freshman move-in essentials: protection for night one, supplements and hydration to start day one right.</p>
+        <div class="mini-cd">
+          <div class="u"><div class="n">2,400</div><div class="l">Claimed</div></div>
+          <div class="u"><div class="n">0</div><div class="l">Left</div></div>
+        </div>
+        <button class="btn btn-disabled" disabled>Sold Out — Notify Next Year</button>
+      </div>
+
+      <div class="drop-card is-live">
+        <span class="status">Live Now</span>
+        <h3>The Halloweekend Drop</h3>
+        <p class="desc">Protection for the night out, supplements and hydration to bounce back the next morning.</p>
+        <div class="mini-cd" id="card-countdown">
+          <div class="u"><div class="n" id="c-days">00</div><div class="l">Days</div></div>
+          <div class="u"><div class="n" id="c-hours">00</div><div class="l">Hrs</div></div>
+          <div class="u"><div class="n" id="c-mins">00</div><div class="l">Min</div></div>
+        </div>
+        <div class="claim-bar">
+          <div class="claim-track"><div class="claim-fill" style="width:92%;"></div></div>
+          <div class="claim-text">1,842 / 2,000 kits claimed</div>
+        </div>
+        <a href="#lineup" class="btn btn-solid" style="display:block;">Subscribe to This Drop</a>
+      </div>
+
+      <div class="drop-card is-waitlist">
+        <span class="status">Waitlist</span>
+        <h3>The Spring Break Drop</h3>
+        <p class="desc">Details land in January. Get first access before the public drop — this one sells out fastest.</p>
+        <div class="mini-cd">
+          <div class="u"><div class="n">—</div><div class="l">Date TBA</div></div>
+          <div class="u"><div class="n">640</div><div class="l">Waitlisted</div></div>
+        </div>
+        <a href="#signup" class="btn btn-solid" style="display:block;">Join Waitlist</a>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<section class="duality" id="inside">
-  <div class="duality-col night">
-    <div class="duality-glow g1" aria-hidden="true"></div>
-    <div class="duality-glow g2" aria-hidden="true"></div>
-    <div class="duality-inner">
-      <h3>The Night side</h3>
-      <div class="duality-tag">Focuses on preparation and safety</div>
+<!-- LINEUP -->
+<section class="lineup" id="lineup">
+  <div class="wrap lineup-head">
+    <h2>One drop. Two lineups.</h2>
+    <p>Same drop, same mission — protection for the night, supplements and hydration for the day — tailored to what you'll actually use.</p>
+  </div>
+  <div class="split">
+    <div class="side hers">
+      <div class="kicker">Halloweekend Drop</div>
+      <h3>Hers</h3>
+      <p class="lead">Going-out ready with the protection and recovery your roommate will ask to borrow.</p>
       <ul class="item-list">
-        <li>
-          <div class="item-icon ic-rose">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">SafeSip Drink Test Strips</div>
-            <div class="it-desc">Discreet, easy-to-use tests to detect spiked drinks</div>
-          </div>
-        </li>
-        <li>
-          <div class="item-icon ic-teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">Pre-Party Defense Supplements</div>
-            <div class="it-desc">Liver support and proactive vitamin complexes</div>
-          </div>
-        </li>
-        <li>
-          <div class="item-icon ic-dawn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="8" height="8" rx="4" transform="rotate(-45 7 14)"/><rect x="13" y="2" width="8" height="8" rx="4" transform="rotate(-45 17 6)"/><path d="M9.5 11.5l1 1"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">Collagen + B12 Recovery Blend</div>
-            <div class="it-desc">A daily mix to support skin, energy, and recovery through the week</div>
-          </div>
-        </li>
-        <li>
-          <div class="item-icon ic-violet">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h4l2-7 4 14 2-7h4"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">Ride-Home Emergency Card</div>
-            <div class="it-desc">Wallet card with emergency contacts and a prepaid rideshare code</div>
-          </div>
-        </li>
-        <li>
-          <div class="item-icon ic-coral">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3h6l1 4H8l1-4z"/><path d="M8 7l-2 12a2 2 0 002 2h8a2 2 0 002-2L16 7"/><path d="M9 13h6"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">Night-Cap Recovery Shot</div>
-            <div class="it-desc">Electrolytes, B-vitamins, and ginger to take before bed after drinking</div>
-          </div>
-        </li>
+        <li>SafeSip Drink Test Strips <span class="tag">Survive</span></li>
+        <li>Ride-share safety card + ID holder <span class="tag">Survive</span></li>
+        <li>Electrolyte + multivitamin hydration packets, berry (4ct) <span class="tag">Thrive</span></li>
+        <li>Night-Cap Recovery Shot <span class="tag">Thrive</span></li>
+        <li>Collagen + B12 recovery blend <span class="tag">Thrive</span></li>
       </ul>
     </div>
-  </div>
-  <div class="duality-col day">
-    <div class="duality-glow g1" aria-hidden="true"></div>
-    <div class="duality-glow g2" aria-hidden="true"></div>
-    <div class="duality-inner right">
-      <h3>The Day side</h3>
-      <div class="duality-tag">Recovery for whatever's on the calendar</div>
+    <div class="side his">
+      <div class="kicker">Halloweekend Drop</div>
+      <h3>His</h3>
+      <p class="lead">Everything you'll actually grab on the way out the door — and need the next morning.</p>
       <ul class="item-list">
-        <li>
-          <div class="item-icon ic-dawn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">Electrolyte hydration mix</div>
-            <div class="it-desc">Rapid rehydration, gender-formulated, no added sugar</div>
-          </div>
-        </li>
-        <li>
-          <div class="item-icon ic-rose">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">Focus blend</div>
-            <div class="it-desc">Caffeine-calibrated capsules for early lectures without the crash</div>
-          </div>
-        </li>
-        <li>
-          <div class="item-icon ic-violet">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12.5A8.5 8.5 0 1111.5 4a6.5 6.5 0 008.5 8.5z"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">Sleep support</div>
-            <div class="it-desc">Non-habit-forming capsules for actually falling asleep before 2am</div>
-          </div>
-        </li>
-        <li>
-          <div class="item-icon ic-teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 2v4M16 2v4M4 10h16"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">Daily multivitamin</div>
-            <div class="it-desc">A base formula built around what a dining-hall diet tends to miss</div>
-          </div>
-        </li>
-        <li>
-          <div class="item-icon ic-coral">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="8" height="8" rx="4" transform="rotate(-45 7 14)"/><rect x="13" y="2" width="8" height="8" rx="4" transform="rotate(-45 17 6)"/><path d="M9.5 11.5l1 1"/></svg>
-          </div>
-          <div class="item-text">
-            <div class="it-name">Rapid Relief Tablets</div>
-            <div class="it-desc">Fast-acting relief for headaches and rough mornings</div>
-          </div>
-        </li>
+        <li>Pre-Party Defense Supplements <span class="tag">Thrive</span></li>
+        <li>Daily multivitamin <span class="tag">Thrive</span></li>
+        <li>Electrolyte + multivitamin hydration packets, citrus (4ct) <span class="tag">Thrive</span></li>
+        <li>Night-Cap Recovery Shot <span class="tag">Thrive</span></li>
+        <li>Creatine + B12 recovery blend <span class="tag">Thrive</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="product" id="kit">
+<!-- TRUST -->
+<section class="trust" id="trust">
   <div class="wrap">
-    <div class="product-head">
-      <div class="section-label" style="text-align:center;">The product</div>
-      <h2>The Survive &amp; Thrive Kit</h2>
-      <p>One subscription, one drop every four weeks. The safety half is shared — the recovery formula is built separately for her and for him.</p>
+    <div class="section-head">
+      <h2>Built for the night.<br>Backed for the day.</h2>
+      <p>Premium wellness on the outside. Real safety and supplement science on the inside.</p>
     </div>
-
-    <div class="toggle-row">
-      <div class="toggle" id="genderToggle">
-        <button class="active" data-mode="her">For Her</button>
-        <button data-mode="him">For Him</button>
-        <div class="toggle-pill" id="togglePill"></div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <h4><span class="dot"></span>Safety in every kit</h4>
+        <p>Every single drop includes at least one real safety item — alarm, charger, or ID protection. Not an afterthought.</p>
+      </div>
+      <div class="trust-item">
+        <h4><span class="dot"></span>Discreet shipping</h4>
+        <p>Plain packaging, no branding on the outside. What's inside is nobody's business but yours.</p>
+      </div>
+      <div class="trust-item">
+        <h4><span class="dot"></span>Subscribe on your terms</h4>
+        <p>Skip a month, swap a kit, or cancel anytime from your account — no calls, no hidden fees. Prefer a single drop? That works too.</p>
+      </div>
+      <div class="trust-item">
+        <h4><span class="dot"></span>Parent-approved contents</h4>
+        <p>Every item list is published before the drop ships, so whoever's paying knows exactly what's inside.</p>
       </div>
     </div>
-
-    <div class="kit-card">
-      <div class="kit-visual" id="kitVisual">
-        <div id="kitVisualHer" class="kit-figure">
-          <svg viewBox="0 0 240 240" fill="none">
-            <ellipse cx="120" cy="226" rx="54" ry="7" fill="rgba(0,0,0,0.18)"/>
-            <!-- backpack, quilted, one strap over the shoulder -->
-            <rect x="150" y="80" width="30" height="48" rx="11" fill="var(--rose)" stroke="var(--dawn)" stroke-width="1.5"/>
-            <path d="M155 90 L165 100 M165 90 L155 100 M155 109 L165 119 M165 109 L155 119" stroke="var(--dawn-2)" stroke-width="1" opacity="0.45"/>
-            <rect x="157" y="96" width="16" height="14" rx="4" fill="var(--rose-soft)" opacity="0.85"/>
-            <path d="M118 70 C 130 74, 144 82, 152 92" stroke="var(--night-3)" stroke-width="9" stroke-linecap="round" fill="none"/>
-            <!-- legs in wide-leg jeans -->
-            <path d="M96 156 L84 204 L112 204 L116 160 Z" fill="var(--denim)"/>
-            <path d="M144 156 L156 204 L128 204 L124 160 Z" fill="var(--denim)"/>
-            <rect x="84" y="196" width="28" height="10" rx="3" fill="var(--denim-2)" opacity="0.55"/>
-            <rect x="128" y="196" width="28" height="10" rx="3" fill="var(--denim-2)" opacity="0.55"/>
-            <path d="M101 165 L92 202 M111 165 L109 202 M129 165 L131 202 M139 165 L148 202" stroke="var(--denim-2)" stroke-width="1" opacity="0.45"/>
-            <!-- chunky sneakers -->
-            <ellipse cx="100" cy="207" rx="15" ry="7" fill="var(--cream)"/>
-            <ellipse cx="140" cy="207" rx="15" ry="7" fill="var(--cream)"/>
-            <rect x="85" y="211" width="30" height="7" rx="3.5" fill="var(--night-2)"/>
-            <rect x="125" y="211" width="30" height="7" rx="3.5" fill="var(--night-2)"/>
-            <path d="M89 207 h22 M125 207 h22" stroke="var(--dawn)" stroke-width="1.6" opacity="0.5"/>
-            <!-- wide-leg jeans, high-waisted -->
-            <path d="M97 108
-                     C97 105 102 103 108 103
-                     L132 103
-                     C138 103 143 105 143 108
-                     L150 158
-                     C150 163 90 163 90 158
-                     Z" fill="var(--denim)"/>
-            <rect x="100" y="102" width="40" height="9" rx="4.5" fill="var(--denim-2)"/>
-            <path d="M108 118 L112 130 M132 118 L128 130" stroke="var(--denim-2)" stroke-width="1.6" opacity="0.55"/>
-            <!-- back arm bent toward chest, holding books -->
-            <path d="M140 82 C 152 88, 154 98, 148 106" stroke="var(--rose)" stroke-width="12" stroke-linecap="round" fill="none"/>
-            <!-- cropped ribbed tank top -->
-            <path d="M104 76
-                     C104 71 111 68 120 68
-                     C129 68 136 71 136 76
-                     L139 103
-                     C139 107 101 107 101 103
-                     Z" fill="var(--rose)"/>
-            <path d="M108 80 v18 M114 80 v20 M126 80 v20 M132 80 v18" stroke="var(--rose-soft)" stroke-width="1.4" opacity="0.5"/>
-            <path d="M112 68 L108 60 M128 68 L132 60" stroke="var(--rose)" stroke-width="5" stroke-linecap="round"/>
-            <!-- front arm, hand resting on hip -->
-            <path d="M101 92 C 89 98, 84 107, 90 116 C 93 121, 100 119, 102 113" stroke="var(--rose)" stroke-width="12" stroke-linecap="round" fill="none"/>
-            <!-- books held against chest -->
-            <rect x="88" y="92" width="38" height="13" rx="3" fill="var(--dawn)" transform="rotate(-4 107 98)"/>
-            <rect x="90" y="103" width="36" height="15" rx="3" fill="var(--cream)" transform="rotate(-3 108 110)"/>
-            <rect x="92" y="116" width="32" height="11" rx="3" fill="var(--rose-soft)" stroke="var(--rose)" stroke-width="1" transform="rotate(-2 108 121)"/>
-            <!-- neck -->
-            <rect x="114" y="60" width="12" height="14" rx="5" fill="var(--cream)"/>
-            <!-- head, adult proportions -->
-            <circle cx="120" cy="44" r="16" fill="var(--cream)"/>
-            <!-- soft face cues -->
-            <path d="M112.5 42 q3 2.6 5.5 0 M122 42 q3 2.6 5.5 0" stroke="var(--night)" stroke-width="1.4" stroke-linecap="round" opacity="0.55"/>
-            <path d="M115.5 50 q4.5 2.2 9 0" stroke="var(--rose)" stroke-width="1.8" stroke-linecap="round" opacity="0.75"/>
-            <!-- hair: short, straight, center part, chin length -->
-            <path d="M98 44 C90 10 150 10 142 44 C139 36 133 30 126 28 C122 26.5 118 26.5 114 28 C107 30 101 36 98 44 Z" fill="#5c3a24"/>
-            <path d="M101 30 C91 37 86 50 89 64 C91 73 90 79 86 84 C92 82 97 77 99 71 C102 61 100 48 103 36 C103.4 33.5 102.3 31.5 101 30 Z" fill="#5c3a24"/>
-            <path d="M139 30 C149 37 154 50 151 64 C149 73 150 79 154 84 C148 82 143 77 141 71 C138 61 140 48 137 36 C136.6 33.5 137.7 31.5 139 30 Z" fill="#5c3a24"/>
-          </svg>
-        </div>
-        <div id="kitVisualHim" class="kit-figure" style="display:none;">
-          <svg viewBox="0 0 240 240" fill="none">
-            <ellipse cx="120" cy="206" rx="54" ry="7" fill="rgba(0,0,0,0.18)"/>
-            <!-- backpack, one strap over the shoulder -->
-            <rect x="150" y="76" width="28" height="44" rx="10" fill="var(--teal)" stroke="var(--dawn)" stroke-width="1.5"/>
-            <rect x="156" y="90" width="16" height="13" rx="4" fill="var(--teal-soft)" opacity="0.85"/>
-            <path d="M118 68 C 130 72, 144 80, 152 90" stroke="var(--night-3)" stroke-width="8" stroke-linecap="round" fill="none"/>
-            <!-- joggers -->
-            <path d="M98 120 L90 182 L110 182 L114 160 Z" fill="var(--night-3)"/>
-            <path d="M142 120 L150 182 L130 182 L126 160 Z" fill="var(--night-3)"/>
-            <rect x="88" y="178" width="24" height="9" rx="4" fill="var(--night-2)"/>
-            <rect x="128" y="178" width="24" height="9" rx="4" fill="var(--night-2)"/>
-            <path d="M100 124 L93 180 M140 124 L147 180" stroke="var(--dawn)" stroke-width="2" opacity="0.55"/>
-            <!-- chunky sneakers -->
-            <ellipse cx="100" cy="192" rx="15" ry="7" fill="var(--cream)"/>
-            <ellipse cx="140" cy="192" rx="15" ry="7" fill="var(--cream)"/>
-            <rect x="85" y="196" width="30" height="7" rx="3.5" fill="var(--night-2)"/>
-            <rect x="125" y="196" width="30" height="7" rx="3.5" fill="var(--night-2)"/>
-            <path d="M89 192 h22 M129 192 h22" stroke="var(--teal)" stroke-width="1.6" opacity="0.6"/>
-            <!-- joggers waistband -->
-            <rect x="94" y="112" width="52" height="10" rx="5" fill="var(--night-3)"/>
-            <!-- athletic tee, broader shoulders -->
-            <path d="M96 76
-                     C96 70 106 66 120 66
-                     C134 66 144 70 144 76
-                     L148 116
-                     C148 120 92 120 92 116
-                     Z" fill="var(--teal)"/>
-            <path d="M100 76 L94 86 M140 76 L146 86" stroke="var(--dawn)" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="120" cy="92" r="6" fill="var(--dawn)" opacity="0.9"/>
-            <path d="M116.5 92 l2.5 2.5 l5 -5.5" stroke="var(--cream)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <!-- back arm, raised holding a water bottle -->
-            <path d="M144 84 C 158 88, 164 98, 160 110" stroke="var(--teal)" stroke-width="13" stroke-linecap="round" fill="none"/>
-            <rect x="152" y="100" width="14" height="30" rx="5" fill="var(--dawn)"/>
-            <rect x="156" y="96" width="6" height="6" rx="2" fill="var(--dawn-2)"/>
-            <!-- front arm, relaxed at side -->
-            <path d="M97 90 C 88 98, 84 110, 90 122" stroke="var(--teal)" stroke-width="13" stroke-linecap="round" fill="none"/>
-            <circle cx="90" cy="124" r="7" fill="var(--cream)"/>
-            <!-- neck -->
-            <rect x="112" y="60" width="16" height="14" rx="5" fill="var(--cream)"/>
-            <!-- head, adult proportions -->
-            <circle cx="120" cy="44" r="17" fill="var(--cream)"/>
-            <!-- soft face cues -->
-            <path d="M112.5 44 q3 2.4 5.5 0 M122 44 q3 2.4 5.5 0" stroke="var(--night)" stroke-width="1.4" stroke-linecap="round" opacity="0.55"/>
-            <path d="M114.5 53 q5.5 1.6 11 0" stroke="var(--night)" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/>
-            <!-- hair: neat, combed side part -->
-            <path d="M104 40
-                     C101 28 103 18 110 14
-                     C115 11 130 10.5 136 15
-                     C140 19 139 30 136 40
-                     C133 32 128 28 121 28
-                     C114 28 108 32 104 40
-                     Z" fill="#a9754a"/>
-            <path d="M116 12.5 C112 15 109 20 108.5 27" stroke="#875c37" stroke-width="1.1" stroke-linecap="round" opacity="0.45" fill="none"/>
-            <path d="M122 27 C126 22 132 19 137 18" stroke="#875c37" stroke-width="1" stroke-linecap="round" opacity="0.35" fill="none"/>
-          </svg>
-        </div>
-      </div>
-      <div class="kit-details">
-        <div class="kit-badge" id="kitBadge">For Her</div>
-        <h3 id="kitTitle">Survive &amp; Thrive — Women's Formula</h3>
-        <p class="intro" id="kitIntro">Iron-inclusive multivitamin and a hormone-friendly focus blend, paired with the full night-safety set.</p>
-        <ul class="formula-list" id="formulaList">
-          <li><span class="f-name">Multivitamin</span><span class="f-desc">Iron + B12 blend</span></li>
-          <li><span class="f-name">Hydration mix</span><span class="f-desc">Electrolytes + collagen</span></li>
-          <li><span class="f-name">Sleep support</span><span class="f-desc">Magnesium glycinate</span></li>
-          <li><span class="f-name">Focus blend</span><span class="f-desc">L-theanine + green tea</span></li>
-          <li><span class="f-name">Night safety set</span><span class="f-desc">Shared, all kits</span></li>
-        </ul>
-        <div class="kit-price-row">
-          <div class="kit-price">
-            <div class="amount">$49 <span style="font-size:16px; font-weight:400; color:#6b6a72;">first drop</span></div>
-            <div class="terms">then $39/month · cancel anytime</div>
-          </div>
-          <a href="#" class="btn btn-dawn">Start subscription</a>
-        </div>
-      </div>
+    <div class="trust-note">
+      <strong>For parents:</strong> Night Day kits are reviewed for campus-appropriate, legal contents only. You can view any drop's full contents list at nightdaydrop.com/contents before your student's next shipment.
     </div>
   </div>
 </section>
 
-<section class="audience" id="parents">
-  <div class="aud-glow g1" aria-hidden="true"></div>
-  <div class="aud-glow g2" aria-hidden="true"></div>
+<!-- SIGNUP -->
+<section class="signup" id="signup">
   <div class="wrap">
-    <div class="audience-head">
-      <div class="section-label" style="text-align:center;">Two people, one kit</div>
-      <h2>Built for the student. Trusted by the parent.</h2>
-    </div>
-    <div class="audience-grid">
-      <div class="aud-card">
-        <div class="aud-icon ic-teal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/><circle cx="12" cy="8" r="4"/></svg>
-        </div>
-        <h3>For the student</h3>
-        <p>Manage your own drops, swap products, pause a month, or change your formula from your account — no calls to Mom required. Packaging is discreet, and everything fits in a backpack.</p>
-        <a href="#kit" class="btn btn-outline-night">Set up your kit</a>
-      </div>
-      <div class="aud-card">
-        <div class="aud-icon ic-rose">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.4-9.5-9C.8 8.2 3 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 4 0 6.2 3.7 4.5 7.5C19 16.6 12 21 12 21z"/></svg>
-        </div>
-        <h3>For the parent</h3>
-        <p>Gift the first drop, set the billing, and know exactly what's inside — a real safety kit, not just supplements. You'll get a renewal reminder before every charge, and you can pause it just as easily.</p>
-        <a href="#kit" class="btn btn-outline-night">Gift a subscription</a>
-      </div>
+    <div class="signup-inner">
+      <h2>Never miss a drop.</h2>
+      <p>Subscribe once and every themed drop ships automatically — skip, swap, or cancel anytime. Prefer to go drop-by-drop? Join the alert list instead.</p>
+      <form class="signup-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='You\'re In';">
+        <input type="email" placeholder="you@university.edu" required aria-label="Email address">
+        <button type="submit" class="btn btn-orange">Get Started</button>
+      </form>
+      <p class="signup-fine">One email to start. Manage or cancel your subscription anytime.</p>
     </div>
   </div>
 </section>
 
-<section class="coming-soon">
-  <div class="cs-glow g1" aria-hidden="true"></div>
-  <div class="cs-glow g2" aria-hidden="true"></div>
-  <div class="cs-deco cs-deco-moon" aria-hidden="true">
-    <svg viewBox="0 0 260 260" fill="none">
-      <defs>
-        <linearGradient id="csMoonGrad" x1="60" y1="20" x2="220" y2="200" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="var(--night)"/>
-          <stop offset="100%" stop-color="var(--teal)"/>
-        </linearGradient>
-      </defs>
-      <path d="M170 40a95 95 0 1 0 60 130 78 78 0 0 1 -60 -130z" fill="url(#csMoonGrad)" opacity="0.85"/>
-      <circle cx="222" cy="150" r="4" fill="var(--dawn)"/>
-      <circle cx="60" cy="55" r="3" fill="var(--rose)"/>
-      <circle cx="98" cy="30" r="2.2" fill="var(--dawn)"/>
-      <circle cx="38" cy="108" r="2.2" fill="var(--teal)"/>
-    </svg>
-  </div>
-  <div class="cs-deco cs-deco-sun" aria-hidden="true">
-    <svg viewBox="0 0 320 320" fill="none">
-      <defs>
-        <radialGradient id="csSunGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="rgba(226,147,63,0.45)"/>
-          <stop offset="100%" stop-color="rgba(226,147,63,0)"/>
-        </radialGradient>
-      </defs>
-      <circle cx="230" cy="230" r="130" fill="url(#csSunGlow)"/>
-      <circle cx="230" cy="230" r="58" fill="var(--dawn)" opacity="0.9"/>
-      <g stroke="var(--dawn-2)" stroke-width="2" stroke-linecap="round" stroke-opacity="0.55">
-        <path d="M230 148v-22"/>
-        <path d="M230 312v-22"/>
-        <path d="M148 230h-22"/>
-        <path d="M312 230h-22"/>
-        <path d="M172 172l-16 -16"/>
-        <path d="M288 288l-16 -16"/>
-        <path d="M288 172l16 -16"/>
-        <path d="M172 288l-16 -16"/>
-      </g>
-    </svg>
-  </div>
-  <div class="cs-pill cs-pill-rose" aria-hidden="true">
-    <svg viewBox="0 0 60 30" fill="none">
-      <rect x="1" y="1" width="58" height="28" rx="14" fill="var(--rose-soft)" stroke="var(--rose)" stroke-width="1.5"/>
-      <path d="M30 1v28" stroke="var(--rose)" stroke-width="1.5"/>
-      <rect x="1" y="1" width="29" height="28" rx="14" fill="var(--rose)"/>
-    </svg>
-  </div>
-  <div class="cs-pill cs-pill-teal" aria-hidden="true">
-    <svg viewBox="0 0 60 30" fill="none">
-      <rect x="1" y="1" width="58" height="28" rx="14" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5"/>
-      <path d="M30 1v28" stroke="var(--teal)" stroke-width="1.5"/>
-      <rect x="1" y="1" width="29" height="28" rx="14" fill="var(--teal)"/>
-    </svg>
-  </div>
-  <div class="cs-pill cs-pill-dawn" aria-hidden="true">
-    <svg viewBox="0 0 40 40" fill="none">
-      <circle cx="20" cy="20" r="18" fill="var(--dawn)" opacity="0.9"/>
-      <path d="M20 10v20M10 20h20" stroke="var(--cream)" stroke-width="1.6" opacity="0.55"/>
-    </svg>
-  </div>
-  <div class="wrap">
-    <div class="cs-badge"><span class="dot"></span>Coming Fall 2026</div>
-    <h2>Be first to know when Day/Night launches</h2>
-    <p>We're finishing formulas and packing the first drop. Leave your email and we'll let you know the moment early access opens — for students and parents both.</p>
-    <form class="cs-form" onsubmit="return false;">
-      <input type="email" placeholder="Your email" required>
-      <button type="submit" class="btn btn-dawn">Notify me</button>
-    </form>
-    <div class="cs-note">No spam — just one email when we launch.</div>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo"><img src="https://daynight.onepercentdesign.com/logo_white.png" alt="Day/Night"></div>
-        <p>The Survive &amp; Thrive Kit — safety for the night out, recovery for the morning after. Delivered every four weeks.</p>
-        <form class="subscribe-form" onsubmit="return false;">
-          <input type="email" placeholder="Your email" required>
-          <button type="submit">Notify me</button>
-        </form>
-      </div>
-      <div class="footer-col">
-        <h4>Shop</h4>
-        <ul>
-          <li><a href="#kit">The Kit</a></li>
-          <li><a href="#kit">For Her</a></li>
-          <li><a href="#kit">For Him</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="#parents">For Parents</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Shipping</a></li>
-        </ul>
+      <div class="logo-lockup"><img src="https://daynight.onepercentdesign.com/logo_white.png" alt="Night Day"></div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Drops</h5>
+          <a href="#drops">O-Week</a>
+          <a href="#drops">Halloweekend</a>
+          <a href="#drops">Spring Break</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="#trust">Contents & Safety</a>
+          <a href="#">For Parents</a>
+          <a href="#">Contact</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2026 Day/Night. All rights reserved.</div>
-      <div class="disclaimer">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
+      <p>© 2026 Night Day. nightdaydrop.com</p>
+      <p>Every drop, reviewed before it ships.</p>
     </div>
   </div>
 </footer>
 
 <script>
-  const toggle = document.getElementById('genderToggle');
-  const pill = document.getElementById('togglePill');
-  const buttons = toggle.querySelectorAll('button');
-  const badge = document.getElementById('kitBadge');
-  const title = document.getElementById('kitTitle');
-  const intro = document.getElementById('kitIntro');
-  const list = document.getElementById('formulaList');
-  const visual = document.getElementById('kitVisual');
+  function pad(n){ return String(n).padStart(2,'0'); }
 
-  const content = {
-    her: {
-      badge: 'For Her',
-      title: "Survive &amp; Thrive — Women's Formula",
-      intro: "Iron-inclusive multivitamin and a hormone-friendly focus blend, paired with the full night-safety set.",
-      items: [
-        ['Multivitamin', 'Iron + B12 blend'],
-        ['Hydration mix', 'Electrolytes + collagen'],
-        ['Sleep support', 'Magnesium glycinate'],
-        ['Focus blend', 'L-theanine + green tea'],
-        ['Night safety set', 'Shared, all kits'],
-      ],
-      badgeClass: '',
-      dot1:'var(--rose)', dot3:'var(--dawn)'
-    },
-    him: {
-      badge: 'For Him',
-      title: "Survive &amp; Thrive — Men's Formula",
-      intro: "Zinc and magnesium multivitamin with a creatine-based hydration mix, paired with the full night-safety set.",
-      items: [
-        ['Multivitamin', 'Zinc + magnesium blend'],
-        ['Hydration mix', 'Electrolytes + creatine'],
-        ['Sleep support', 'Ashwagandha, melatonin-free'],
-        ['Focus blend', 'Caffeine + L-theanine'],
-        ['Night safety set', 'Shared, all kits'],
-      ],
-      badgeClass: 'for-him',
-      dot1:'var(--teal)', dot3:'var(--dawn)'
+  function startCountdown(target, ids){
+    function tick(){
+      const now = new Date();
+      let diff = Math.max(0, target - now);
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff / (1000*60*60)) % 24);
+      const mins = Math.floor((diff / (1000*60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+      if(ids.days) document.getElementById(ids.days).textContent = pad(days);
+      if(ids.hours) document.getElementById(ids.hours).textContent = pad(hours);
+      if(ids.mins) document.getElementById(ids.mins).textContent = pad(mins);
+      if(ids.secs) document.getElementById(ids.secs).textContent = pad(secs);
     }
-  };
-
-  function render(mode){
-    const c = content[mode];
-    badge.textContent = c.badge;
-    badge.className = 'kit-badge ' + c.badgeClass;
-    title.innerHTML = c.title;
-    intro.textContent = c.intro;
-    list.innerHTML = c.items.map(([n,d]) =>
-      `<li><span class="f-name">${n}</span><span class="f-desc">${d}</span></li>`
-    ).join('');
-    document.getElementById('kitVisualHer').style.display = mode === 'her' ? 'flex' : 'none';
-    document.getElementById('kitVisualHim').style.display = mode === 'him' ? 'flex' : 'none';
-    buttons.forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
-    pill.classList.toggle('to-him', mode === 'him');
+    tick();
+    setInterval(tick, 1000);
   }
 
-  buttons.forEach(b => b.addEventListener('click', () => render(b.dataset.mode)));
+  // Halloweekend Drop closes Oct 24, 2026, 6:00 PM local
+  const halloweenClose = new Date('2026-10-24T18:00:00');
 
-  document.querySelectorAll('nav a[data-mode]').forEach(link => {
-    link.addEventListener('click', () => render(link.dataset.mode));
-  });
+  startCountdown(halloweenClose, {days:'h-days', hours:'h-hours', mins:'h-mins', secs:'h-secs'});
+  startCountdown(halloweenClose, {days:'c-days', hours:'c-hours', mins:'c-mins'});
 </script>
 
 </body>
